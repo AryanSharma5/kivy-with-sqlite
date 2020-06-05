@@ -1,0 +1,108 @@
+#: import t kivymd.toast.kivytoast
+
+Screen:
+	ScreenManager:
+		id : screen_manager	
+		Screen:
+			name : 'login'	
+			FloatLayout:
+				canvas:
+					Color:
+						rgba: rgba('#0e1574ff')
+					Triangle:
+						points: (0, self.size[1] - (0.4*self.size[1]), 0, self.size[1], self.size[0], self.size[1])
+					Color:
+						rgba: rgba('#0e1574c8')
+					Triangle:
+						points: (self.size[0], self.size[1] - (0.4*self.size[1]), self.size[0]//2, self.size[1] - (0.2*self.size[1]), self.size[0], self.size[1])
+				MDIcon:
+					pos_hint: {'center_x': 0.5, 'center_y' : 0.6}
+					size_hint: (None, None)
+					icon : 'AVATAR/icons8-user-100.png'
+				MDLabel:
+					text : 'SIGNIN'
+					pos_hint : {'x' : 0.415, 'center_y' : 0.85}
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					text_size: (0.3, 0.2)
+				MDTextField:
+					id : email
+					hint_text : 'Email'
+					size_hint: (0.8, None)
+					pos_hint : {'center_x' : 0.5, 'center_y' : 0.45}
+				MDTextField:
+					id : password
+					hint_text : 'Password'
+					password : True
+					size_hint: (0.8, None)
+					pos_hint : {'center_x' : 0.5, 'center_y' : 0.34}
+				MDTextButton:
+					text : f"[u]Sign up![/u]"
+					markup: True
+					pos_hint: {'x': 0.1, 'y' : 0.26}
+					font_size: '13sp'
+					on_press:
+						app.change_screen()
+				MDTextButton:
+					text : f'[u]forgot password?[/u]'
+					markup: True
+					pos_hint : {'x' : 0.6, 'y' : 0.26}
+					font_size: '13sp'
+					on_press:
+						t.toast('Sorry we can"t do anything, you are solely responsible for that !!')
+				MDFillRoundFlatButton:
+					text : 'Signin'
+					md_bg_color : rgba('#0e1574ff')
+					text_color : 1, 1, 1, 1
+					size_hint: (0.4, None)
+					pos_hint : {'center_x' : 0.5, 'center_y' : 0.17}
+					on_press:
+						app.validate()
+		Screen:
+			name : 'signup'
+			FloatLayout:
+				canvas:
+					Color:
+						rgba: rgba('#0e1574ff')
+					Triangle:
+						points: (0, self.size[1] - (0.4*self.size[1]), 0, self.size[1], self.size[0], self.size[1])
+					Color:
+						rgba: rgba('#0e1574c8')
+					Triangle:
+						points: (self.size[0], self.size[1] - (0.4*self.size[1]), self.size[0]//2, self.size[1] - (0.2*self.size[1]), self.size[0], self.size[1])
+				MDIconButton:
+					icon : 'keyboard-backspace'
+					pos_hint: {'center_x': 0.1, 'center_y' : 0.94}
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					on_press:
+						app.change_screen('back')
+				MDLabel:
+					text : 'SIGNUP'
+					pos_hint : {'x' : 0.415, 'center_y' : 0.85}
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					text_size: (0.3, 0.2)
+				MDIcon:
+					pos_hint: {'center_x': 0.5, 'center_y' : 0.6}
+					size_hint: (None, None)
+					icon : 'AVATAR/icons8-user-100.png'
+				MDTextField:
+					id : email_signup
+					hint_text : 'Email'
+					size_hint: (0.8, None)
+					pos_hint : {'center_x' : 0.5, 'center_y' : 0.45}
+				MDTextField:
+					id : password_signup
+					hint_text : 'Password'
+					password : True
+					size_hint: (0.8, None)
+					pos_hint : {'center_x' : 0.5, 'center_y' : 0.34}
+				MDFillRoundFlatButton:
+					text : 'signup'
+					md_bg_color : rgba('#0e1574ff')
+					text_color : 1, 1, 1, 1
+					size_hint: (0.4, None)
+					pos_hint : {'center_x' : 0.5, 'center_y' : 0.17}
+					on_press:
+						app.signup()
